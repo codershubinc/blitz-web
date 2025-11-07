@@ -7,6 +7,16 @@ interface WiFiPanelProps {
     info: WiFiInfo | null;
 }
 
+function formatSpeed(mbps: number): string {
+    if (mbps >= 1000) {
+        return `${(mbps / 1000).toFixed(2)} Gbps`;
+    } else if (mbps >= 1) {
+        return `${mbps.toFixed(2)} Mbps`;
+    } else {
+        return `${(mbps * 1024).toFixed(0)} Kbps`;
+    }
+}
+
 export function WiFiPanel({ info }: WiFiPanelProps) {
     return (
         <Card className="relative p-6 bg-linear-to-br from-[#1a1d3a]/80 via-[#0f1223]/80 to-[#1a1d3a]/80 border-2 border-[#6366f1]/30 backdrop-blur-xl shadow-[0_8px_32px_rgba(99,102,241,0.15)] overflow-hidden h-full">
@@ -41,12 +51,12 @@ export function WiFiPanel({ info }: WiFiPanelProps) {
                                 </div>
                                 <div className="text-xs text-gray-300 mt-1">Signal: {info.signalStrength}%</div>
                             </div>
-                            <div className="text-sm font-mono text-white">{info.linkSpeed / 100} MBps</div>
+                            <div className="text-sm font-mono text-white">{formatSpeed(info.linkSpeed)}</div>
                         </div>
 
                         <div className="flex items-center justify-between text-xs text-gray-300">
                             <div>IP: <span className="text-white font-mono">{info.ipAddress || '—'}</span></div>
-                            <div>DL <span className="text-white font-mono">{(info.downloadSpeed / 100).toFixed(1)} MBps</span> / UL <span className="text-white font-mono">{(info.uploadSpeed / 100).toFixed(1)} MBps</span></div>
+                            <div>DL <span className="text-white font-mono">{formatSpeed(info.downloadSpeed)}</span> / UL <span className="text-white font-mono">{formatSpeed(info.uploadSpeed)}</span></div>
                         </div>
                     </div>
                 )}

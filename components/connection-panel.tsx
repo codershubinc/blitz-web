@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { KeyboardEvent } from 'react';
+import { KeyboardEvent, useState, ChangeEvent } from 'react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
@@ -25,6 +25,46 @@ export function ConnectionPanel({
     const handleKeyPress = (e: KeyboardEvent<HTMLInputElement>) => {
         if (e.key === 'Enter') {
             onConnect();
+        }
+    };
+
+    // Upload state
+    const [selectedFile, setSelectedFile] = useState<File | null>(null);
+    const [uploadResponse, setUploadResponse] = useState<string | null>(null);
+    const [isUploading, setIsUploading] = useState(false);
+
+    const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
+        setUploadResponse(null);
+        const f = e.target.files && e.target.files[0];
+        setSelectedFile(f || null);
+    };
+
+    const handleUpload = async () => {
+        if (!selectedFile) return;
+        const ip = ipAddress.trim();
+        if (!ip) {
+            setUploadResponse('Enter IP address first');
+            return;
+        }
+
+        const url = `http://${ip}:8765/upload`;
+        const form = new FormData();
+        form.append('file', selectedFile);
+
+        setIsUploading(true);
+        setUploadResponse(null);
+
+        try {
+            const res = await fetch(url, {
+                method: 'POST',
+                body: form,
+            });
+            const text = await res.text();
+            setUploadResponse(text || `Status ${res.status}`);
+        } catch (err) {
+            setUploadResponse(`Upload failed: ${err instanceof Error ? err.message : 'Unknown error'}`);
+        } finally {
+            setIsUploading(false);
         }
     };
 
@@ -70,6 +110,28 @@ export function ConnectionPanel({
                     >
                         {status}
                     </p>
+                </div>
+
+                {/* File upload to server IP */}
+                <div className="mt-6">
+                    <label className="flex items-center gap-3">
+                        <input
+                            type="file"
+                            onChange={handleFileChange}
+                            className="block w-full text-sm text-gray-300 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:bg-[#111327] file:text-sm file:font-semibold file:text-white cursor-pointer"
+                        />
+                        <button
+                            onClick={handleUpload}
+                            disabled={!selectedFile || isUploading}
+                            className="ml-2 h-10 px-4 bg-linear-to-r from-[#6366f1] to-[#8b5cf6] text-white rounded-md disabled:opacity-50"
+                        >
+                            {isUploading ? 'Uploading...' : 'Upload'}
+                        </button>
+                    </label>
+
+                    {uploadResponse && (
+                        <div className="mt-3 text-xs text-gray-200 bg-black/30 p-2 rounded">{uploadResponse}</div>
+                    )}
                 </div>
             </div>
         </Card>

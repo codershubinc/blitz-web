@@ -23,7 +23,7 @@ export function RemoteControls({ output, onCommand }: RemoteControlsProps) {
         <div className="flex-1 space-y-5">
             <div>
                 <div className="flex items-center gap-2 mb-3">
-                    <div className="w-1 h-5 bg-gradient-to-b from-[#6366f1] to-[#8b5cf6] rounded-full" />
+                    <div className="w-1 h-5 bg-linear-to-b from-[#6366f1] to-[#8b5cf6] rounded-full" />
                     <h3 className="text-sm font-black tracking-wider text-white/80 uppercase">
                         Quick Actions
                     </h3>
