@@ -33,9 +33,9 @@ export function RemoteControls({ output, onCommand }: RemoteControlsProps) {
                         <Button
                             key={cmd.id}
                             onClick={() => onCommand(cmd.id)}
-                            className="relative h-auto py-3 px-3 text-xs sm:text-sm font-bold tracking-tight bg-gradient-to-br from-[#1a1d3a]/90 to-[#0f1223]/90 hover:from-[#6366f1] hover:to-[#8b5cf6] text-white border border-[#6366f1]/30 hover:border-[#ec4899]/50 hover:-translate-y-0.5 hover:shadow-[0_4px_16px_rgba(99,102,241,0.4)] transition-all duration-300 active:scale-95 backdrop-blur-sm overflow-hidden group"
+                            className="relative h-auto py-3 px-3 text-xs sm:text-sm font-bold tracking-tight bg-linear-to-br from-[#1a1d3a]/90 to-[#0f1223]/90 hover:from-[#6366f1] hover:to-[#8b5cf6] text-white border border-[#6366f1]/30 hover:border-[#ec4899]/50 hover:-translate-y-0.5 hover:shadow-[0_4px_16px_rgba(99,102,241,0.4)] transition-all duration-300 active:scale-95 backdrop-blur-sm overflow-hidden group"
                         >
-                            <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                            <div className="absolute inset-0 bg-linear-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                             <span className="relative z-10 truncate">{cmd.label}</span>
                         </Button>
                     ))}
@@ -43,15 +43,15 @@ export function RemoteControls({ output, onCommand }: RemoteControlsProps) {
             </div>
 
             <div>
-                <div className="flex items-center gap-2 mb-3">
-                    <div className="w-1 h-5 bg-gradient-to-b from-[#6366f1] to-[#8b5cf6] rounded-full" />
+                <div className="flex items-center gap-3 mb-4">
+                    <div className="w-1 h-5 bg-linear-to-b from-[#6366f1] to-[#8b5cf6] rounded-full" />
                     <h3 className="text-sm font-black tracking-wider text-white/80 uppercase">
                         System Output
                     </h3>
                 </div>
                 <Card className="relative bg-black/60 border-2 border-white/10 p-4 sm:p-5 min-h-[120px] max-h-[250px] sm:max-h-[300px] overflow-y-auto backdrop-blur-xl shadow-inner">
-                    <div className="absolute inset-0 bg-gradient-to-br from-[#6366f1]/5 via-transparent to-[#ec4899]/5 pointer-events-none" />
-                    <pre className="relative z-10 whitespace-pre-wrap break-words font-mono text-xs sm:text-sm text-[#10b981] leading-relaxed">
+                    <div className="absolute inset-0 bg-linear-to-br from-[#6366f1]/5 via-transparent to-[#ec4899]/5 pointer-events-none" />
+                    <pre className="relative z-10 whitespace-pre-wrap wrap-break-word font-mono text-xs sm:text-sm text-[#10b981] leading-relaxed">
                         {output}
                     </pre>
                 </Card>
