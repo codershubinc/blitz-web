@@ -35,9 +35,9 @@ export function MusicPlayer({
     onCommand,
 }: MusicPlayerProps) {
     return (
-        <Card className="relative p-6 bg-linear-to-br from-[#1a1d3a]/80 via-[#0f1223]/80 to-[#1a1d3a]/80 border-2 border-[#6366f1]/30 backdrop-blur-xl shadow-[0_8px_32px_rgba(99,102,241,0.15)] overflow-hidden h-full">
-            <div className="absolute inset-0 bg-linear-to-br from-[#6366f1]/5 via-transparent to-[#ec4899]/5 pointer-events-none" />
-            <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-[#6366f1] via-[#8b5cf6] to-[#ec4899] opacity-50" />
+        <Card className="relative p-6 bg-gradient-to-br from-[#1a1d3a]/80 via-[#0f1223]/80 to-[#1a1d3a]/80 border-2 border-[#6366f1]/30 backdrop-blur-xl shadow-[0_8px_32px_rgba(99,102,241,0.15)] overflow-hidden h-full">
+            <div className="absolute inset-0 bg-gradient-to-br from-[#6366f1]/5 via-transparent to-[#ec4899]/5 pointer-events-none" />
+            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#6366f1] via-[#8b5cf6] to-[#ec4899] opacity-50" />
             <div className="relative z-10">
                 <div className="flex items-center justify-between mb-4">
                     <div className="flex items-center gap-2 flex-1 justify-center">
@@ -58,7 +58,7 @@ export function MusicPlayer({
                 <div className="flex items-center gap-6 mb-6">
                     {showSkeleton ? (
                         <>
-                            <Skeleton className="w-40 h-40 rounded-2xl bg-linear-to-br from-white/10 to-white/5 shrink-0" />
+                            <Skeleton className="w-40 h-40 rounded-2xl bg-gradient-to-br from-white/10 to-white/5 shrink-0" />
                             <div className="flex-1 space-y-3">
                                 <Skeleton className="h-6 w-full bg-linear-to-r from-white/10 to-white/5 rounded-full" />
                                 <Skeleton className="h-5 w-3/4 bg-linear-to-r from-white/10 to-white/5 rounded-full" />
@@ -68,7 +68,7 @@ export function MusicPlayer({
                         <>
                             {albumArtVisible && (
                                 <div className="relative group/art shrink-0">
-                                    <div className="absolute -inset-1 bg-linear-to-r from-[#6366f1] via-[#4f46e5] to-[#3730a3] rounded-2xl blur opacity-50 group-hover/art:opacity-75 transition duration-500" />
+                                    <div className="absolute -inset-1 bg-gradient-to-r from-[#6366f1] via-[#4f46e5] to-[#3730a3] rounded-2xl blur opacity-50 group-hover/art:opacity-75 transition duration-500" />
                                     {/* eslint-disable-next-line @next/next/no-img-element */}
                                     <img
                                         src={albumArt}
@@ -90,10 +90,10 @@ export function MusicPlayer({
                                     </span>
                                     <div className="flex-1 h-2 bg-black/40 rounded-full overflow-hidden shadow-inner border border-white/10">
                                         <div
-                                            className="h-full bg-linear-to-r from-[#6366f1] via-[#8b5cf6] to-[#a78bfa] rounded-full transition-all duration-500 shadow-[0_0_12px_rgba(99,102,241,0.8)] relative"
+                                            className="h-full bg-gradient-to-r from-[#6366f1] via-[#8b5cf6] to-[#a78bfa] rounded-full transition-all duration-500 shadow-[0_0_12px_rgba(99,102,241,0.8)] relative"
                                             style={{ width: `${progressWidth}%` }}
                                         >
-                                            <div className="absolute inset-0 bg-linear-to-r from-white/20 to-transparent" />
+                                            <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent" />
                                             <div className="absolute right-0 top-0 h-full w-1.5 bg-white rounded-full shadow-[0_0_8px_rgba(255,255,255,0.8)]" />
                                         </div>
                                     </div>
@@ -112,7 +112,7 @@ export function MusicPlayer({
                                     <Button
                                         size="icon"
                                         variant="outline"
-                                        className="w-11 h-11 rounded-full bg-linear-to-br from-[#1a1d3a] to-[#0f1223] border-2 border-[#6366f1]/40 text-white hover:border-[#6366f1] hover:shadow-[0_0_20px_rgba(99,102,241,0.6)] hover:scale-110 transition-all duration-300"
+                                        className="w-11 h-11 rounded-full bg-gradient-to-br from-[#1a1d3a] to-[#0f1223] border-2 border-[#6366f1]/40 text-white hover:border-[#6366f1] hover:shadow-[0_0_20px_rgba(99,102,241,0.6)] hover:scale-110 transition-all duration-300"
                                         onClick={() => onCommand('player_prev')}
                                         title="Previous"
                                     >
@@ -121,7 +121,7 @@ export function MusicPlayer({
                                     <Button
                                         size="icon"
                                         variant="outline"
-                                        className="w-14 h-14 rounded-full bg-linear-to-br from-[#6366f1] to-[#4f46e5] border-0 text-white hover:from-[#4f46e5] hover:to-[#6366f1] hover:scale-110 shadow-[0_0_25px_rgba(99,102,241,0.5)] hover:shadow-[0_0_35px_rgba(79,70,229,0.7)] transition-all duration-300"
+                                        className="w-14 h-14 rounded-full bg-gradient-to-br from-[#6366f1] to-[#4f46e5] border-0 text-white hover:from-[#4f46e5] hover:to-[#6366f1] hover:scale-110 shadow-[0_0_25px_rgba(99,102,241,0.5)] hover:shadow-[0_0_35px_rgba(79,70,229,0.7)] transition-all duration-300"
                                         onClick={() => onCommand('player_toggle')}
                                         title="Play/Pause"
                                     >
@@ -134,7 +134,7 @@ export function MusicPlayer({
                                     <Button
                                         size="icon"
                                         variant="outline"
-                                        className="w-11 h-11 rounded-full bg-linear-to-br from-[#1a1d3a] to-[#0f1223] border-2 border-[#6366f1]/40 text-white hover:border-[#6366f1] hover:shadow-[0_0_20px_rgba(99,102,241,0.6)] hover:scale-110 transition-all duration-300"
+                                        className="w-11 h-11 rounded-full bg-gradient-to-br from-[#1a1d3a] to-[#0f1223] border-2 border-[#6366f1]/40 text-white hover:border-[#6366f1] hover:shadow-[0_0_20px_rgba(99,102,241,0.6)] hover:scale-110 transition-all duration-300"
                                         onClick={() => onCommand('player_next')}
                                         title="Next"
                                     >

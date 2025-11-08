@@ -70,12 +70,12 @@ export function ConnectionPanel({
 
 
     return (
-        <Card className="relative p-8 bg-linear-to-br from-[#1a1d3a]/90 via-[#0f1223]/90 to-[#1a1d3a]/90 border-2 border-[#6366f1]/30 backdrop-blur-xl shadow-[0_8px_32px_rgba(99,102,241,0.2)] overflow-hidden">
-            <div className="absolute inset-0 bg-linear-to-br from-[#6366f1]/5 via-transparent to-[#ec4899]/5 pointer-events-none" />
+        <Card className="relative p-8 bg-gradient-to-br from-[#1a1d3a]/90 via-[#0f1223]/90 to-[#1a1d3a]/90 border-2 border-[#6366f1]/30 backdrop-blur-xl shadow-[0_8px_32px_rgba(99,102,241,0.2)] overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-[#6366f1]/5 via-transparent to-[#ec4899]/5 pointer-events-none" />
             <div className="relative z-10">
                 <div className="flex items-center justify-center gap-3 mb-8">
                     <div className="text-5xl animate-pulse">⚡</div>
-                    <h1 className="text-4xl font-black tracking-tight bg-linear-to-r from-[#6366f1] via-[#8b5cf6] to-[#ec4899] bg-clip-text text-transparent drop-shadow-[0_0_20px_rgba(99,102,241,0.5)]">
+                    <h1 className="text-4xl font-black tracking-tight bg-gradient-to-r from-[#6366f1] via-[#8b5cf6] to-[#ec4899] bg-clip-text text-transparent drop-shadow-[0_0_20px_rgba(99,102,241,0.5)]">
                         BLITZ REMOTE
                     </h1>
                 </div>
@@ -93,7 +93,7 @@ export function ConnectionPanel({
                     <Button
                         onClick={onConnect}
                         disabled={isConnecting}
-                        className="h-12 px-8 bg-linear-to-r from-[#6366f1] to-[#8b5cf6] hover:from-[#8b5cf6] hover:to-[#ec4899] text-white font-bold shadow-[0_0_20px_rgba(99,102,241,0.5)] hover:shadow-[0_0_30px_rgba(139,92,246,0.7)] transition-all duration-300 border-0"
+                        className="h-12 px-8 bg-gradient-to-r from-[#6366f1] to-[#8b5cf6] hover:from-[#8b5cf6] hover:to-[#ec4899] text-white font-bold shadow-[0_0_20px_rgba(99,102,241,0.5)] hover:shadow-[0_0_30px_rgba(139,92,246,0.7)] transition-all duration-300 border-0"
                     >
                         CONNECT
                     </Button>
