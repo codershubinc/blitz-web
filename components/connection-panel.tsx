@@ -68,6 +68,7 @@ export function ConnectionPanel({
         }
     };
 
+
     return (
         <Card className="relative p-8 bg-gradient-to-br from-[#1a1d3a]/90 via-[#0f1223]/90 to-[#1a1d3a]/90 border-2 border-[#6366f1]/30 backdrop-blur-xl shadow-[0_8px_32px_rgba(99,102,241,0.2)] overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-br from-[#6366f1]/5 via-transparent to-[#ec4899]/5 pointer-events-none" />
